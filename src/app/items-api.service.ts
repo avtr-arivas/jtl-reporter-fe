@@ -96,4 +96,19 @@ export class ItemsApiService {
   fetchItemChartSettings(projectName, scenarioName, itemId) {
     return this.http.get(`projects/${projectName}/scenarios/${scenarioName}/items/${itemId}/custom-chart-settings`);
   }
+  
+  fetchChartAnalysis(projectName: string, scenarioName: string, itemId: string, chartType: string) {
+  return this.http.get<{ analysis: string, generated: boolean }>(
+    `projects/${projectName}/scenarios/${scenarioName}/items/${itemId}/analysis/${chartType}`
+  );
+}
+
+upsertChartAnalysis(projectName: string, scenarioName: string, itemId: string, chartType: string, analysis: string) {
+  return this.http.put(
+    `projects/${projectName}/scenarios/${scenarioName}/items/${itemId}/analysis/${chartType}`,
+    { analysis },
+    { observe: "response" }
+  );
+}
+  
 }

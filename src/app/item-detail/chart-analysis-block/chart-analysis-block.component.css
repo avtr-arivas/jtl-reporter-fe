@@ -1,0 +1,46 @@
+.analysis-block {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 12px;
+}
+
+.analysis-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.analysis-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #495057;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.analysis-actions {
+  display: flex;
+  align-items: center;
+}
+
+.analysis-text {
+  font-size: 14px;
+  color: #343a40;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.analysis-empty {
+  font-size: 13px;
+  color: #adb5bd;
+  font-style: italic;
+  margin: 0;
+}
+
+.edit-actions {
+  display: flex;
+}

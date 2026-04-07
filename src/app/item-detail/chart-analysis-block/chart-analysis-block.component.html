@@ -1,0 +1,50 @@
+<div class="analysis-block">
+  <div class="analysis-header">
+    <span class="analysis-title">Análisis</span>
+    <div class="analysis-actions">
+      <button
+        class="btn btn-sm btn-outline-primary"
+        [disabled]="loading"
+        (click)="suggestWithAi()">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1" role="status"></span>
+        <span *ngIf="!loading">✦</span>
+        Sugerir con IA
+      </button>
+      <button
+        *ngIf="!editing && analysis"
+        class="btn btn-sm btn-outline-secondary ml-1"
+        (click)="startEditing()">
+        Editar
+      </button>
+    </div>
+  </div>
+
+  <div class="analysis-body" *ngIf="!editing">
+    <p *ngIf="analysis" class="analysis-text">{{ analysis }}</p>
+    <p *ngIf="!analysis" class="analysis-empty">
+      Sin análisis aún. Usa "Sugerir con IA" para generar uno automáticamente.
+    </p>
+  </div>
+
+  <div class="analysis-edit" *ngIf="editing">
+    <textarea
+      class="form-control"
+      rows="5"
+      [(ngModel)]="analysis">
+    </textarea>
+    <div class="edit-actions mt-2">
+      <button
+        class="btn btn-sm btn-primary"
+        [disabled]="saving"
+        (click)="saveAnalysis()">
+        <span *ngIf="saving" class="spinner-border spinner-border-sm mr-1" role="status"></span>
+        Guardar
+      </button>
+      <button
+        class="btn btn-sm btn-outline-secondary ml-1"
+        (click)="cancelEditing()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
